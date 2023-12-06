@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Redirect Extension",
+  "version": "1.0",
+  "description": "Redirects to the embedded version of YouTube videos.",
+  "permissions": ["tabs", "storage"],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
